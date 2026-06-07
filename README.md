@@ -1,6 +1,6 @@
-# Athenaeum - Sistema de Gestión de Biblioteca
+# BookStore - Sistema de Gestión de Biblioteca
 
-¡Bienvenido a **Athenaeum**! Una aplicación web full-stack premium diseñada para la administración y consulta de autores y libros en un catálogo de biblioteca. Este proyecto implementa funcionalidades avanzadas de filtrado, paginación y agregación de datos (estadísticas de rendimiento).
+¡Bienvenido a **BookStore**! Una aplicación web full-stack premium diseñada para la administración y consulta de autores y libros en un catálogo de biblioteca. Este proyecto implementa funcionalidades avanzadas de filtrado, paginación y agregación de datos (estadísticas de rendimiento).
 
 El desarrollo está basado en una arquitectura moderna enfocada en la experiencia de usuario (UX), utilizando un diseño responsivo con estética premium de glassmorphism y transiciones fluidas.
 
