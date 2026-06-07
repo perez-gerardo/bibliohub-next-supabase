@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Athenaeum - Sistema de Gestión de Biblioteca
 
-## Getting Started
+¡Bienvenido a **Athenaeum**! Una aplicación web full-stack premium diseñada para la administración y consulta de autores y libros en un catálogo de biblioteca. Este proyecto implementa funcionalidades avanzadas de filtrado, paginación y agregación de datos (estadísticas de rendimiento).
 
-First, run the development server:
+El desarrollo está basado en una arquitectura moderna enfocada en la experiencia de usuario (UX), utilizando un diseño responsivo con estética premium de glassmorphism y transiciones fluidas.
 
+---
+
+## 🚀 Tecnologías Utilizadas
+
+*   **Frontend & Core:** [Next.js](https://nextjs.org/) (versión 16, App Router) y [React 19](https://react.dev/).
+*   **Base de Datos Relacional:** PostgreSQL alojado en [Supabase](https://supabase.com/).
+*   **ORM:** [Prisma](https://www.prisma.io/) (para modelado y migraciones de datos con soporte de transactions).
+*   **Estilos y UX:** [Tailwind CSS v4](https://tailwindcss.com/) (diseño completamente responsivo y adaptativo).
+*   **Iconografía:** [Lucide React](https://lucide.dev/).
+
+---
+
+## ✨ Características Principales
+
+### 👨‍💻 Panel de Gestión de Autores (Dashboard)
+*   **CRUD Completo de Autores:** Creación, lectura, edición y eliminación de perfiles de autores.
+*   **Estadísticas Generales:** Tarjetas interactivas con métricas globales actualizadas en tiempo real (autores totales, libros, etc.).
+*   **Diseño Interactivo:** Modales animados para inserción y edición de perfiles sin recargas de página.
+
+### 📚 Buscador de Libros Avanzado
+*   **Búsqueda en Tiempo Real:** Filtro reactivo por título del libro (case-insensitive).
+*   **Filtros Multi-criterio:** Dropdowns dinámicos para filtrar de forma simultánea por género y autor.
+*   **Paginación Eficiente:** Implementación de paginación en el backend para un rendimiento óptimo de carga.
+*   **Ordenamiento Flexible:** Ordenamiento ascendente/descendente configurable por título del libro, fecha de creación o año de publicación.
+
+### 📊 Perfil de Detalle & Métricas por Autor
+*   **Estadísticas Avanzadas:** 
+    *   Cálculo del promedio de páginas escritas por libro.
+    *   Identificación de los libros con mayor y menor número de páginas.
+    *   Historial cronológico (primer libro vs. último libro publicado).
+    *   Listado de géneros literarios únicos abordados por el autor.
+*   **Asociación Rápida:** Registro de nuevos libros asociados automáticamente al autor seleccionado.
+
+---
+
+## 🛠️ Arquitectura de la API (Endpoints)
+
+El sistema expone las siguientes rutas de API robustas bajo `/api/`:
+
+*   `GET /api/authors` - Listar todos los autores.
+*   `POST /api/authors` - Registrar un autor.
+*   `GET | PUT | DELETE /api/authors/[id]` - Operaciones individuales por autor.
+*   `GET /api/authors/[id]/stats` - **[Avanzado]** Agregación de estadísticas del autor.
+*   `GET /api/books` - Obtener libros.
+*   `POST /api/books` - Crear un libro.
+*   `GET | PUT | DELETE /api/books/[id]` - Operaciones individuales por libro.
+*   `GET /api/books/search` - **[Avanzado]** Búsqueda de libros con paginación, filtros y ordenación.
+
+---
+
+## ⚙️ Instrucciones de Instalación y Uso Local
+
+### 1. Clonar el Repositorio
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/TU_USUARIO/athenaeum-library-manager.git
+cd athenaeum-library-manager
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Instalar Dependencias
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Configurar Variables de Entorno
+Crea un archivo `.env` en la raíz del proyecto y agrega tu cadena de conexión a PostgreSQL:
+```env
+DATABASE_URL="postgresql://usuario:contraseña@servidor:puerto/bd?schema=public"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Sincronizar Base de Datos con Prisma
+Genera el cliente Prisma y realiza la sincronización de tablas:
+```bash
+npx prisma db push
+```
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 5. Iniciar Servidor de Desarrollo
+```bash
+npm run dev
+```
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación funcionando.

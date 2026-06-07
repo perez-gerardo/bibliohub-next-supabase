@@ -9,7 +9,13 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "5.22.0",
+    "@types/pg": "^8.20.0",
+    "lucide-react": "^1.17.0",
     "next": "16.2.7",
+    "pg": "^8.21.0",
+    "prisma": "5.22.0",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
@@ -22,5 +28,10 @@
     "eslint-config-next": "16.2.7",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "allowScripts": {
+    "@prisma/client@5.22.0": true,
+    "@prisma/engines@5.22.0": true,
+    "prisma@5.22.0": true
   }
 }
